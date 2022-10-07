@@ -1,4 +1,4 @@
-FROM golang:1.16
+FROM golang:1.19
 
 # Install kubectl
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -20,7 +20,7 @@ RUN wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh
 RUN go install github.com/go-delve/delve/cmd/dlv@latest
 
 # Install golangci-lint
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /go/bin v1.38.0
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /go/bin v1.45.2
 
 # Clone the dapr repos
 WORKDIR /go/src
